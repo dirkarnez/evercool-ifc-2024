@@ -1,3 +1,9 @@
+https://github.com/dirkarnez/ifcopenshell-pyodide
+https://blenderbim.org/docs-python/ifcopenshell-python/geometry_creation.html
+https://blenderbim.org/docs-python/ifcopenshell-python/geometry_processing.html
+https://blenderbim.org/docs-python/ifcopenshell-python/code_examples.html
+https://blenderbim.org/docs-python/ifcopenshell-python/geometry_creation.html#mesh-representations
+
 https://community.osarch.org/discussion/1092/ifcopenshell-python-how-to-convert-many-obj-files-to-an-ifc-file
 https://community.osarch.org/discussion/1074/ifcopenshell-python-from-obj-file-to-ifc-file
 
