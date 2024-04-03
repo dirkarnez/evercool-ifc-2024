@@ -1,6 +1,19 @@
-
+evercool-ifc-2024
 ### Notes
 - use IFCX4 with **IFCPOLYGONALFACESET**
+  - ```
+    IFCINDEXEDPOLYGONALFACE
+    IFCCARTESIANPOINTLIST3D
+    IFCPOLYGONALFACESET
+    IFCGEOMETRICREPRESENTATIONSUBCONTEXT
+    IFCSHAPEREPRESENTATION
+    IFCAXIS2PLACEMENT3D
+    IFCREPRESENTATIONMAP()
+    IFCMAPPEDITEM
+    IFCPRODUCTDEFINITIONSHAPE
+    IFCLOCALPLACEMENT
+    IfcProductRepresentation? should us, i don't know,looks helpful
+    ```
 ### References
 - https://github.com/dirkarnez/ifcopenshell-pyodide
   - the version is too old... Does not support adding mesh
