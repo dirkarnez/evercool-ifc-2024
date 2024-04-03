@@ -1,6 +1,7 @@
 evercool-ifc-2024
 =================
 - https://thatopen.github.io/engine_web-ifc/demo/
+- https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/ifchvacdomain/content.html
 ### Notes
 - use IFCX4 with **IFCPOLYGONALFACESET**
   - ```
@@ -30,3 +31,6 @@ evercool-ifc-2024
 - https://github.com/Martin15135215/git_ifc_test
 - https://github.com/Martin15135215/git_ifc_test/blob/main/testface.obj
 - https://blenderbim.org/docs-python/ifcopenshell-python/hello_world.html
+
+### Extra
+- [Python HVAC – Python applied to HVAC](https://pythoncvc.net/?lang=en)
