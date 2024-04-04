@@ -1,6 +1,11 @@
 evercool-ifc-2024
 =================
 - https://thatopen.github.io/engine_web-ifc/demo/
+  - ```js
+    let data= ifcAPI.SaveModel(model);
+    let d = new TextDecoder().decode(data);
+    debugger;
+    ```
 - https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/ifchvacdomain/content.html
 ### Notes
 - use IFCX4 with **IFCPOLYGONALFACESET**
