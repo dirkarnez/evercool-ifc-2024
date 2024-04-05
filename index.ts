@@ -57,4 +57,6 @@ IFCSHAPEREPRESENTATION(IFCGEOMETRICREPRESENTATIONSUBCONTEXT which is model_view,
 IFCPRODUCTDEFINITIONSHAPE($,$,(IFCSHAPEREPRESENTATION));
 
 the IFCPRODUCTDEFINITIONSHAPE will be assigned with (HVAC)domain name , with IFCLOCALPLACEMENT, CreatePlacement(CreateLocation(posX: number, posY: number, posZ: number), $, $)
-#69=IFCDIRECTION((1.,0.,0.));
+
+https://www.cnblogs.com/plus301/p/16624107.html for coloring
+
