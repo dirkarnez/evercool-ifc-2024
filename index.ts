@@ -40,6 +40,10 @@ function CreatePlacement(model, location: Location, axis:?Axis, refDirection:?Re
 	ifcAPI.CreateIfcEntity(model, IFCAXIS2PLACEMENT3D, location, null, null);
 }
 
+
+
+
+// ---------
 function CreateFace() : Face {
 IfcIndexedPolygonalFace(3 unsigned integers)
 }
@@ -52,5 +56,5 @@ IFCSHAPEREPRESENTATION(IFCGEOMETRICREPRESENTATIONSUBCONTEXT which is model_view,
 
 IFCPRODUCTDEFINITIONSHAPE($,$,(IFCSHAPEREPRESENTATION));
 
-the IFCPRODUCTDEFINITIONSHAPE will be assigned with (HVAC)domain name , with IFCLOCALPLACEMENT, IFCAXIS2PLACEMENT3D(IFCCARTESIANPOINT, IFCDIRECTION, IFCDIRECTION)
+the IFCPRODUCTDEFINITIONSHAPE will be assigned with (HVAC)domain name , with IFCLOCALPLACEMENT, CreatePlacement(CreateLocation(posX: number, posY: number, posZ: number), $, $)
 #69=IFCDIRECTION((1.,0.,0.));
