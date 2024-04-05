@@ -22,6 +22,8 @@ evercool-ifc-2024
     IFCLOCALPLACEMENT
     IfcProductRepresentation? should us, i don't know,looks helpful
     ```
+### Obj
+- **https://blog.csdn.net/xiongzai2016/article/details/108052800**
 ### References
 - https://github.com/dirkarnez/ifcopenshell-pyodide
   - the version is too old... Does not support adding mesh
