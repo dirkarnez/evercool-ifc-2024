@@ -79,3 +79,7 @@ IFCPRODUCTDEFINITIONSHAPE($,$,(IFCSHAPEREPRESENTATION));
 the IFCPRODUCTDEFINITIONSHAPE will be assigned with (HVAC)domain name , with IFCLOCALPLACEMENT, CreatePlacement(CreateLocation(posX: number, posY: number, posZ: number), $, $)
 
 https://www.cnblogs.com/plus301/p/16624107.html for coloring
+
+function a(...elements: Element[]) {
+    elements.forEach(element => element.WriteToIFCModel())
+}
