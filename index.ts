@@ -1,10 +1,25 @@
 
+    interface IfcLineObject {
+
+    }
+    
+    export {};
+
+    declare global {
+        interface Window { 
+            ifcAPI: { CreateIfcEntity: (modelID: number, type: any, ...args: any) => IfcLineObject}; 
+            
+        }
+    }
+
+    
+
     interface pt {
         x: number, y: number, z: number;
     }
 
     interface BIMElement {
-        ifcEntity any
+        ifcLineObject: IfcLineObject
     }
 
     interface IFCExportable {
@@ -16,8 +31,9 @@
     }
 
     class Location extends Element {
-        constructor(model, posX: number, posY: number, posZ: number) {
-            this.ifcEntity = ifcAPI.CreateIfcEntity(model, IFCCARTESIANPOINT, [ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.x), ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.y),ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.z)]);
+        constructor(model: number, posX: number, posY: number, posZ: number) {
+            super();
+            this.ifcLineObject = window.ifcAPI.CreateIfcEntity(model, IFCCARTESIANPOINT, [ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.x), ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.y),ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.z)]);
         }
     }
 
