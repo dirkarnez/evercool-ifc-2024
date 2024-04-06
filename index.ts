@@ -3,6 +3,36 @@
         x: number, y: number, z: number;
     }
 
+    interface BIMElement {
+        ifcEntity any
+    }
+
+    interface IFCExportable {
+        WriteToIFCModel(): string
+    }
+
+    interface Element extends BIMElement, IFCExportable {
+
+    }
+
+    class Location extends Element {
+        constructor(model, posX: number, posY: number, posZ: number) {
+            this.ifcEntity = ifcAPI.CreateIfcEntity(model, IFCCARTESIANPOINT, [ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.x), ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.y),ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.z)]);
+        }
+    }
+
+
+    class Placement extends Element {
+        /*
+        IfcAxis2Placement3D's super class is IfcPlacement
+        */
+        constructor(model, location: Location, axis:?Axis, refDirection:?RefDirection) Placement {
+            this.ifcEntity = ifcAPI.CreateIfcEntity(model, IFCAXIS2PLACEMENT3D, location.ifcEntity, null, null);
+        }
+    }
+
+
+
     const gridSize = 6;
 
     let dir: pt =  { x: 0, y: 0, z: 1 };
@@ -29,23 +59,13 @@
         }
     }
 
-function CreateLocation(model, posX: number, posY: number, posZ: number) Location {
-	ifcAPI.CreateIfcEntity(model, IFCCARTESIANPOINT, [ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.x), ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.y),ifcAPI.CreateIfcType(model,IFCLENGTHMEASURE,pos.z)]);
-}
-
-/*
-IfcAxis2Placement3D's super class is IfcPlacement
-*/
-function CreatePlacement(model, location: Location, axis:?Axis, refDirection:?RefDirection) Placement {
-	ifcAPI.CreateIfcEntity(model, IFCAXIS2PLACEMENT3D, location, null, null);
-}
 
 
 
 
 // ---------
 function CreateFace() : Face {
-IfcIndexedPolygonalFace(3 unsigned integers)
+    IfcIndexedPolygonalFace(3 unsigned integers)
 }
 
 CreateFaceSet(faces: Face[]): FaceSet {
@@ -59,4 +79,3 @@ IFCPRODUCTDEFINITIONSHAPE($,$,(IFCSHAPEREPRESENTATION));
 the IFCPRODUCTDEFINITIONSHAPE will be assigned with (HVAC)domain name , with IFCLOCALPLACEMENT, CreatePlacement(CreateLocation(posX: number, posY: number, posZ: number), $, $)
 
 https://www.cnblogs.com/plus301/p/16624107.html for coloring
-
