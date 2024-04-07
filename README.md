@@ -42,3 +42,9 @@ evercool-ifc-2024
 
 ### Extra
 - [Python HVAC – Python applied to HVAC](https://pythoncvc.net/?lang=en)
+- https://standards.buildingsmart.org/IFC/RELEASE/IFC4_3/HTML/ifchvacdomain/content.html
+- https://jpatacas.github.io/ifcjs-viewer/index.html
+- http://www.bimant.com/docs/ifcjs/IfcLoader.getPropertySets/
+- https://github.com/ThatOpen/engine_web-ifc/blob/main/src/ts/helpers/properties.ts
+- https://anweshgangula.github.io/Basic-Forge/
+- https://aps.autodesk.com/blog/publicly-share-models-customized-viewer
