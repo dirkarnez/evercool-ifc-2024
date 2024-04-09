@@ -27,6 +27,7 @@
       "imports": {
         "three": "https://unpkg.com/three@0.160.1/build/three.module.js",
         "stats.js/src/Stats.js": "https://unpkg.com/stats-js@1.0.1/src/Stats.js",
+        "three/addons/libs/lil-gui.module.min.js": "https://threejs.org/examples/jsm/libs/lil-gui.module.min.js",
         "openbim-components": "https://thatopen.github.io/engine_components/resources/openbim-components.js"
       }
     }
@@ -70,7 +71,7 @@ function extractIndexedFaceSet(geometry) {
 }
 
 	import Stats from 'stats.js/src/Stats.js';
-
+  import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 	/*MD
   ### 🌍 Let's create a 3D world!
   ___
@@ -81,6 +82,50 @@ function extractIndexedFaceSet(geometry) {
 	import * as THREE from 'three';
 	import * as OBC from 'openbim-components';
 
+
+  function updateGroupGeometry( mesh, geometry ) {
+
+    mesh.children[ 0 ].geometry.dispose();
+    mesh.children[ 1 ].geometry.dispose();
+
+    mesh.children[ 0 ].geometry = new THREE.WireframeGeometry( geometry );
+    mesh.children[ 1 ].geometry = geometry;
+    const g = extractIndexedFaceSet(group.children[ 1 ].geometry);
+    console.log(JSON.stringify(g))
+    // these do not update nicely together if shared
+
+  }
+
+  function myFunc( mesh ) {
+
+const data = {
+  width: 15,
+  height: 15,
+  depth: 15,
+  widthSegments: 1,
+  heightSegments: 1,
+  depthSegments: 1
+};
+
+function generateGeometry() {
+
+  updateGroupGeometry( mesh,
+    new THREE.BoxGeometry(
+      data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments
+    )
+  );
+
+}
+
+const folder = gui.addFolder( 'THREE.BoxGeometry' );
+
+folder.add( data, 'width', 1, 30 ).onChange( generateGeometry );
+folder.add( data, 'height', 1, 30 ).onChange( generateGeometry );
+folder.add( data, 'depth', 1, 30 ).onChange( generateGeometry );
+
+generateGeometry();
+
+}
 	/*MD
   Now, the first step is getting a container for our viewer. 📦
   This is just a place where the 3D scene will be rendered.
@@ -136,15 +181,15 @@ function extractIndexedFaceSet(geometry) {
 
 	components.init();
     
-        let fragments = new OBC.FragmentManager(components);
+  let fragments = new OBC.FragmentManager(components);
 	let fragmentIfcLoader = new OBC.FragmentIfcLoader(components);
 
 
-const mainToolbar = new OBC.Toolbar(components, {name: 'Main Toolbar', position: 'bottom'});
-components.ui.addToolbar(mainToolbar);
-const ifcButton = fragmentIfcLoader.uiElement.get("main");
-mainToolbar.addChild(ifcButton);
-fragmentIfcLoader.setup();
+  const mainToolbar = new OBC.Toolbar(components, {name: 'Main Toolbar', position: 'bottom'});
+  components.ui.addToolbar(mainToolbar);
+  const ifcButton = fragmentIfcLoader.uiElement.get("main");
+  mainToolbar.addChild(ifcButton);
+  fragmentIfcLoader.setup();
 
 
 	/*MD
@@ -154,6 +199,7 @@ fragmentIfcLoader.setup();
   get the core of the component. We can do it like this:
   */
 
+  const gui = new GUI();
 	const scene = components.scene.get();
 
 	/*MD
@@ -187,14 +233,27 @@ fragmentIfcLoader.setup();
   Let's try it by adding a simple cube:
   */
 
-  const boxMaterial = new THREE.MeshStandardMaterial({ color: '#6528D7' });
-  const boxGeometry = new THREE.BoxGeometry(3, 3, 3);
-	const cube = new THREE.Mesh(boxGeometry, boxMaterial);
-	cube.position.set(0, 1.5, 0);
+  const group = new THREE.Group();
+  const geometry = new THREE.BufferGeometry();
+			geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( [], 3 ) );
+
+			const lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.5 } );
+			const meshMaterial = new THREE.MeshPhongMaterial( { color: 0x156289, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true } );
+
+			group.add( new THREE.LineSegments( geometry, lineMaterial ) );
+			group.add( new THREE.Mesh( geometry, meshMaterial ) );
+      myFunc( group );
+
+      
+
+  // const boxMaterial = new THREE.MeshStandardMaterial({ color: '#6528D7' });
+  // const boxGeometry = new THREE.BoxGeometry(3, 3, 3);
+	// const cube = new THREE.Mesh(boxGeometry, boxMaterial);
+	// cube.position.set(0, 1.5, 0);
     
-    const g = extractIndexedFaceSet(cube.geometry);
+    const g = extractIndexedFaceSet(group.children[ 1 ].geometry);
     debugger;
-	// scene.add(cube);
+	scene.add(group);
 
 	/*MD
 	### 🔦 Lighting things up
