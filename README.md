@@ -4,6 +4,8 @@ evercool-ifc-2024
 - update Geometry
   - **https://threejs.org/manual/resources/threejs-primitives.js**
     - **https://threejs.org/manual/#en/primitives**
+- Advanced geometry
+  - [**The Curve class in threejs a general overview | Dustin John Pfister at github pages**](https://dustinpfister.github.io/2022/06/17/threejs-curve/)
 - https://thatopen.github.io/engine_web-ifc/demo/
   - ```js
     let data= ifcAPI.SaveModel(model);
