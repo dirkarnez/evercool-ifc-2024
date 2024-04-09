@@ -1,6 +1,9 @@
 evercool-ifc-2024
 =================
 - **https://github.com/dirkarnez/web-ifc-three-model-creation**
+- update Geometry
+  - **https://threejs.org/manual/resources/threejs-primitives.js**
+    - **https://threejs.org/manual/#en/primitives**
 - https://thatopen.github.io/engine_web-ifc/demo/
   - ```js
     let data= ifcAPI.SaveModel(model);
