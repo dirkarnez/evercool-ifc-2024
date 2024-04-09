@@ -98,32 +98,32 @@ function extractIndexedFaceSet(geometry) {
 
   function myFunc( mesh ) {
 
-const data = {
-  width: 15,
-  height: 15,
-  depth: 15,
-  widthSegments: 1,
-  heightSegments: 1,
-  depthSegments: 1
-};
+  const data = {
+    width: 15,
+    height: 15,
+    depth: 15,
+    widthSegments: 1,
+    heightSegments: 1,
+    depthSegments: 1
+  };
 
-function generateGeometry() {
+  function generateGeometry() {
 
-  updateGroupGeometry( mesh,
-    new THREE.BoxGeometry(
-      data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments
-    )
-  );
+    updateGroupGeometry( mesh,
+      new THREE.BoxGeometry(
+        data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments
+      )
+    );
 
-}
+  }
 
-const folder = gui.addFolder( 'THREE.BoxGeometry' );
+  const folder = gui.addFolder( 'THREE.BoxGeometry' );
 
-folder.add( data, 'width', 1, 30 ).onChange( generateGeometry );
-folder.add( data, 'height', 1, 30 ).onChange( generateGeometry );
-folder.add( data, 'depth', 1, 30 ).onChange( generateGeometry );
+  folder.add( data, 'width', 1, 30 ).onChange( generateGeometry );
+  folder.add( data, 'height', 1, 30 ).onChange( generateGeometry );
+  folder.add( data, 'depth', 1, 30 ).onChange( generateGeometry );
 
-generateGeometry();
+  generateGeometry();
 
 }
 	/*MD
@@ -243,6 +243,15 @@ generateGeometry();
 			group.add( new THREE.LineSegments( geometry, lineMaterial ) );
 			group.add( new THREE.Mesh( geometry, meshMaterial ) );
       myFunc( group );
+
+      {
+        const myObject = {
+          myFunction: function() { alert("hi") },
+        };
+        const folder = gui.addFolder( 'BIM' );
+
+        folder.add( myObject, 'myFunction').name('Export as BIM file')
+      }
 
       
 
