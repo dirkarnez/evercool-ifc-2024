@@ -13,6 +13,8 @@ evercool-ifc-2024
     debugger;
     ```
 - https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/ifchvacdomain/content.html
+### Images
+![](The-structure-diagram-of-the-air-handling-unit-AHU-in-the-laboratory.png)
 ### Notes
 - use IFCX4 with **IFCPOLYGONALFACESET**
   - ```
