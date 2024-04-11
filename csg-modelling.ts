@@ -134,7 +134,7 @@ const bladeMaterial = new THREE.MeshNormalMaterial();
 
 
   /////////////////////////////
-  working
+  // working
     for (let i = 0; i < 8; i++) {
     const box = new THREE.Mesh(
       new THREE.BoxGeometry(0.2, 0.05, 1),
@@ -146,6 +146,32 @@ const bladeMaterial = new THREE.MeshNormalMaterial();
   }
   //////////////////////
 
+  /////////////////
+  // working, Define the U-shaped curve
+class UCurve extends THREE.Curve<THREE.Vector3> {
+  private scale: number;
+
+  constructor(scale: number = 1) {
+    super();
+    this.scale = scale;
+  }
+
+  getPoint(t: number): THREE.Vector3 {
+    const tx: number = 2 * (t - 0.5);
+    const ty: number = 2 * Math.abs(t - 0.5) - 1;
+    const tz: number = 0;
+    return new THREE.Vector3(tx * this.scale, ty * this.scale, tz * this.scale);
+  }
+}
+
+const uCurve: UCurve = new UCurve(2); // Scale the curve by 2
+
+const tubeGeometry: THREE.TubeGeometry = new THREE.TubeGeometry(uCurve, 50, 0.2, 8, false);
+const pipe: THREE.Mesh = new THREE.Mesh(tubeGeometry, new THREE.MeshNormalMaterial());
+
+// Add the pipe to the scene
+scene.add(pipe);
+  ///////////////////////////////
   
   const result = union(subRes, boxXX, boxYY, boxZZ, cylinder);
 
