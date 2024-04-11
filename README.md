@@ -67,3 +67,14 @@ evercool-ifc-2024
 - https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD1/HTML/schema/ifchvacdomain/lexical/.htm
 - https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/Pset_CoilTypeCommon.htm
 - https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/ifchvacdomain/content.html
+
+### Softwares
+- [AIRSOFT – Air Handling Unit Selection Solution](https://www.airhandlingsoftware.com/)
+  - https://www.airhandlingsoftware.com/wp-content/uploads/2021/11/Unit_Single_Floor_Panels-e1637399195300.png
+  - https://www.airhandlingsoftware.com/wp-content/uploads/2021/11/Unit_Single_Floor.jpg
+- [Part 5 - Placing Air Handling Units in OpenBuildings Designer - YouTube](https://www.youtube.com/watch?v=cpP3koUY3nI)
+- [Unilab: AHU sample Selection with Unilab AHU 7.0 Selection Software - YouTube](https://www.youtube.com/watch?v=qs9gAXqYW7o)
+- [Air Handling Unit (A.H.U) Desing & Selection - HVAC Training - Very Important - YouTube](https://www.youtube.com/watch?v=-ZtdefdZNg8)
+- [Air Handling Unit Working principle | HVAC 08 - YouTube](https://www.youtube.com/watch?v=62AXWAaN1DQ)
+- OpenBuildings Designer
+- [Unilab Smart-Air | UNILAB - Heat Transfer Software](https://www.unilab.eu/heat-transfer-software/unilab-smart-air/)
