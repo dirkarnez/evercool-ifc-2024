@@ -132,6 +132,18 @@ const bladeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 //////////////////////////////////
 
 
+  /////////////////////////////
+  working
+    for (let i = 0; i < 8; i++) {
+    const box = new THREE.Mesh(
+      new THREE.BoxGeometry(0.2, 0.05, 1),
+      new THREE.MeshNormalMaterial()
+    );
+    box.geometry.rotateZ(THREE.MathUtils.degToRad(30));
+    box.geometry.translate( 0, i * 0.2, 0 );
+    scene.add(box);
+  }
+  //////////////////////
 
   
   const result = union(subRes, boxXX, boxYY, boxZZ, cylinder);
