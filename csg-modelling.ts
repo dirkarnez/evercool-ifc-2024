@@ -10,6 +10,21 @@ let camera: THREE.PerspectiveCamera,
 init();
 animate();
 
+function subtract(source: THREE.Mesh, ...objs:THREE.Mesh[]) {
+  let result = source;
+  for (const obj of objs) {
+    result =  CSG.subtract(result, obj)
+  }
+  return result;
+}
+
+function union(source: THREE.Mesh, ...objs:THREE.Mesh[]) {
+  let result = source;
+  for (const obj of objs) {
+    result =  CSG.union(result, obj)
+  }
+  return result;
+}
 function init() {
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -34,32 +49,64 @@ function init() {
   );
 
   const boxX = new THREE.Mesh(
-    new THREE.BoxGeometry(12, 8, 8),
+    new THREE.BoxGeometry(12, 9, 9),
     new THREE.MeshNormalMaterial()
   );
 
   const boxY = new THREE.Mesh(
-    new THREE.BoxGeometry(8, 12, 8),
+    new THREE.BoxGeometry(9, 12, 9),
     new THREE.MeshNormalMaterial()
   );
   
+  boxY.geometry.translate( 0,10,0 );
+
   const boxZ = new THREE.Mesh(
-    new THREE.BoxGeometry(8, 8, 12),
+    new THREE.BoxGeometry(9, 9, 12),
     new THREE.MeshNormalMaterial()
   );
 
   // perform operations on the meshes
-  const subRes  = CSG.subtract( CSG.subtract(CSG.subtract(boxMain, boxX), boxY), boxZ);
+  const subRes  = subtract(boxMain, boxX, boxY, boxZ);
+
+  const boxZZ = new THREE.Mesh(
+    new THREE.BoxGeometry(9, 9, 0.5),
+    new THREE.MeshNormalMaterial()
+  );
+  
+  boxZZ.geometry.translate( 0,0,4.7 );
+
+  const boxXX = new THREE.Mesh(
+    new THREE.BoxGeometry(0.5,9,  9),
+    new THREE.MeshNormalMaterial()
+  );
+  
+  boxXX.geometry.translate( 3,0,0 );
+
+  const boxYY = new THREE.Mesh(
+    new THREE.BoxGeometry(9, 0.5, 9),
+    new THREE.MeshNormalMaterial()
+  );
+  
+  boxYY.geometry.translate( 0,4.7,0 );
+
+  const geometry = new THREE.CylinderGeometry(3, 3, 4, 32 ); 
+  const material = new THREE.MeshNormalMaterial(); 
+  const cylinder = new THREE.Mesh( geometry, material );
+
+  cylinder.geometry.rotateZ(THREE.MathUtils.degToRad(90));
+  cylinder.geometry.translate( 3.5,0,0 );
+  const result = union(subRes, boxXX, boxYY, boxZZ, cylinder);
+
 
   // const unionRes = CSG.union(box, sphere);
   // const interRes = CSG.intersect(box, sphere);
 
   // // space the meshes out so they don't overlap
-  // unionRes.position.add(new THREE.Vector3(0, 0, 5));
+  
   // interRes.position.add(new THREE.Vector3(0, 0, -5));
 
   // add the meshes to the scene
-  scene.add(subRes );
+  scene.add(result );
 }
 
 function animate() {
