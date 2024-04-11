@@ -121,12 +121,13 @@ const extrudeSettings = {
 };
 
 const bladeGeometry = new THREE.ExtrudeGeometry(bladeShape, extrudeSettings);
-const bladeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const bladeMaterial = new THREE.MeshNormalMaterial();
 
   for (let i = 0; i < 8; i++) {
     const bladeMesh = new THREE.Mesh(bladeGeometry, bladeMaterial);
-    bladeMesh.position.y = 0.1;
+    bladeMesh.position.y = 1;
     bladeMesh.rotation.z = (i * Math.PI * 2) / 8;
+    bladeMesh.geometry.rotateY(THREE.MathUtils.degToRad(30));
     baseMesh.add(bladeMesh);
   }
 //////////////////////////////////
