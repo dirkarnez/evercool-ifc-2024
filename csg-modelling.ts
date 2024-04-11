@@ -173,6 +173,48 @@ const pipe: THREE.Mesh = new THREE.Mesh(tubeGeometry, new THREE.MeshNormalMateri
 // Add the pipe to the scene
 scene.add(pipe);
   ///////////////////////////////
+
+  //////////////////////////////////
+ // working, Door and glass
+  // Create a door geometry
+const doorGeometry = new THREE.BoxGeometry(2, 4, 0.2);
+
+// Create a door material
+const doorMaterial = new THREE.MeshBasicMaterial({ color: 0x663300 });
+
+// Create a door mesh
+const doorMesh = new THREE.Mesh(doorGeometry, doorMaterial);
+scene.add(doorMesh);
+
+// Create a glass geometry
+const glassGeometry = new THREE.BoxGeometry(1.5, 3, 0.1);
+
+// Create a glass material
+const glassMaterial = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.2,
+  roughness: 0.1,
+  metalness: 0.0,
+  envMapIntensity: 1.0,
+});
+
+// Create a glass mesh
+const glassMesh = new THREE.Mesh(glassGeometry, glassMaterial);
+scene.add(glassMesh);
+
+
+// Rotate the door to open it
+doorMesh.rotation.y = Math.PI / 4;
+
+// Add lighting to the scene
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+directionalLight.position.set(0, 1, 1);
+scene.add(directionalLight);
+/////////////
   
   const result = union(subRes, boxXX, boxYY, boxZZ, cylinder);
 
