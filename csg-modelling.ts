@@ -1,4 +1,5 @@
 // https://stackblitz.com/edit/three-csg-ts?file=index.ts
+// https://felixmariotto.github.io/three-mesh-ui/#basic_setup
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { CSG } from 'three-csg-ts';
