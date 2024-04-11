@@ -95,6 +95,45 @@ function init() {
 
   cylinder.geometry.rotateZ(THREE.MathUtils.degToRad(90));
   cylinder.geometry.translate( 3.5,0,0 );
+
+//////////////////////////////////
+  /** Fan**/
+
+    const baseGeometry = new THREE.CylinderGeometry(0.5, 0.5, 0.2, 32);
+  const baseMaterial = new THREE.MeshBasicMaterial({ color: 0x808080 });
+  const baseMesh = new THREE.Mesh(baseGeometry, baseMaterial);
+  scene.add(baseMesh);
+  
+  // Create fan blades
+
+  // Create fan blades
+const bladeShape = new THREE.Shape();
+bladeShape.moveTo(0, 0);
+bladeShape.lineTo(0.1, 0.1);
+bladeShape.lineTo(0.05, 1);
+bladeShape.lineTo(-0.05, 1);
+bladeShape.lineTo(-0.1, 0.1);
+bladeShape.lineTo(0, 0);
+
+const extrudeSettings = {
+  depth: 0.1,
+  bevelEnabled: false,
+};
+
+const bladeGeometry = new THREE.ExtrudeGeometry(bladeShape, extrudeSettings);
+const bladeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+  for (let i = 0; i < 8; i++) {
+    const bladeMesh = new THREE.Mesh(bladeGeometry, bladeMaterial);
+    bladeMesh.position.y = 0.1;
+    bladeMesh.rotation.z = (i * Math.PI * 2) / 8;
+    baseMesh.add(bladeMesh);
+  }
+//////////////////////////////////
+
+
+
+  
   const result = union(subRes, boxXX, boxYY, boxZZ, cylinder);
 
 
