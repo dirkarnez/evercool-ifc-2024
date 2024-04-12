@@ -6,6 +6,8 @@ evercool-ifc-2024
     - **https://threejs.org/manual/#en/primitives**
 - Advanced geometry
   - [**The Curve class in threejs a general overview | Dustin John Pfister at github pages**](https://dustinpfister.github.io/2022/06/17/threejs-curve/)
+- https://3dviewer.net/
+  - to convert `.step` to `.glb`
 - https://thatopen.github.io/engine_web-ifc/demo/
   - ```js
     let data= ifcAPI.SaveModel(model);
