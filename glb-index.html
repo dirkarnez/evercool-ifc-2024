@@ -36,6 +36,10 @@
 		import * as THREE from 'three';
 		import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 		import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+		import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+
 		// ------------------------------------------------
 		// BASIC SETUP
 		// ------------------------------------------------
@@ -81,37 +85,64 @@
 		scene.add( lights[ 2 ] );
 	
 		
-		const group = new THREE.Group();
+		// const group = new THREE.Group();
 
-		const geometry = new THREE.BufferGeometry();
-		geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( [], 3 ) );
+		// const geometry = new THREE.BufferGeometry();
+		// geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( [], 3 ) );
 
-		const lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.5 } );
-		const meshMaterial = new THREE.MeshPhongMaterial( { color: 0x156289, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true } );
+		// const lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.5 } );
+		// const meshMaterial = new THREE.MeshPhongMaterial( { color: 0x156289, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true } );
 
-		group.add( new THREE.LineSegments( geometry, lineMaterial ) );
-		group.add( new THREE.Mesh( geometry, meshMaterial ) );
+		// group.add( new THREE.LineSegments( geometry, lineMaterial ) );
+		// group.add( new THREE.Mesh( geometry, meshMaterial ) );
 		
 	
 		
-		const data = {
-			width: 15,
-			height: 15,
-			depth: 15,
-			widthSegments: 1,
-			heightSegments: 1,
-			depthSegments: 1
-		};
+		// const data = {
+		// 	width: 15,
+		// 	height: 15,
+		// 	depth: 15,
+		// 	widthSegments: 1,
+		// 	heightSegments: 1,
+		// 	depthSegments: 1
+		// };
 		
-		group.children[ 0 ].geometry.dispose();
-		group.children[ 1 ].geometry.dispose();
+		// group.children[ 0 ].geometry.dispose();
+		// group.children[ 1 ].geometry.dispose();
 		
-		const boxGeometry = new THREE.BoxGeometry(data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments);
+		// const boxGeometry = new THREE.BoxGeometry(data.width, data.height, data.depth, data.widthSegments, data.heightSegments, data.depthSegments);
 		
-		group.children[ 0 ].geometry = new THREE.WireframeGeometry( boxGeometry );
-		group.children[ 1 ].geometry = boxGeometry;
+		// group.children[ 0 ].geometry = new THREE.WireframeGeometry( boxGeometry );
+		// group.children[ 1 ].geometry = boxGeometry;
 	
-		scene.add(group);
+		// scene.add(group);
+
+
+		const loader = new GLTFLoader();
+		const dracoLoader = new DRACOLoader();
+		dracoLoader.setDecoderPath( '/draco/' );
+		loader.setDRACOLoader( dracoLoader );
+
+		loader.load(
+			// resource URL
+			'compressed.glb',
+			// called when the resource is loaded
+			function ( gltf ) {
+				scene.add( gltf.scene );
+			},
+			// called while loading is progressing
+			function ( xhr ) {
+
+				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+			},
+			// called when loading has errors
+			function ( error ) {
+
+				console.log( 'An error happened' );
+
+			}
+		);
 
 		// // Add cube to Scene
 
@@ -121,8 +152,8 @@
 			requestAnimationFrame(render);
 			
 
-			group.rotation.x += 0.005;
-			group.rotation.y += 0.005;
+			// group.rotation.x += 0.005;
+			// group.rotation.y += 0.005;
 
 
 			// Render the scene
