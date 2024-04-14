@@ -128,7 +128,15 @@
 			'./compressed.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
-				scene.add( gltf.scene );
+				
+				const model = gltf.scene;
+		                model.traverse(function(node) {
+		                    if (node.isMesh && node.material.color.isColor) {
+					node.material = new THREE.MeshPhongMaterial( { color: node.material.color, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true } );
+		                    }
+		                });
+
+				scene.add( model );
 			},
 			// called while loading is progressing
 			function ( xhr ) {
