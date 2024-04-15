@@ -16,6 +16,16 @@ evercool-ifc-2024
     ```
 - https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/ifchvacdomain/content.html
 - **https://threejs.org/examples/webgl_interactive_cubes**
+- [Create A 3D Model Showcase With React, Three.js, and React Three Fiber - YouTube](https://www.youtube.com/watch?v=QaRIHrRclVk)
+- [3d Product Viewer](https://3d-product-viewer-with-threejs.netlify.app/)
+- [Jeya-Prakash/3D-Product-Viewer-JavaScript-Plugin: 360 Degree Product Viewer using plain JavaScript : Demo-->](https://github.com/Jeya-Prakash/3D-Product-Viewer-JavaScript-Plugin)
+- [360-Degree Product Viewer | Threekit](https://www.threekit.com/solutions/360-degree-product-viewer)
+- [Create a 3D Product Feature with React, Three.js, & Theatre.js - YouTube](https://www.youtube.com/watch?v=680171tryig)
+- [Create a 3D product landing page with ThreeJs and React - Data Orchestration for Composable Commerce](https://www.takeshape.io/articles/create-a-3d-product-landing-page-with-threejs-and-react/)
+- [3D Product Visualization on Magento using ThreeJS](https://www.brihaspatitech.com/blog/3d-product-modelling-magento-using-threejs/)
+- [Building a 3D Product Configurator with Nuxt and Three.js (Part 2) | by IOsorin | Medium](https://iosorin.medium.com/building-a-3d-product-configurator-using-nuxt-and-three-js-part-2-fc960e19aa18)
+- [360 view using CSS3DRenderer - Questions - three.js forum](https://discourse.threejs.org/t/360-view-using-css3drenderer/17045)
+- [Add an Interactive 3D Model to Your Website // Three.js Tutorial for Beginners - YouTube](https://www.youtube.com/watch?v=aOQuuotM-Ww)
 ### Images
 ![](The-structure-diagram-of-the-air-handling-unit-AHU-in-the-laboratory.png)
 ### Notes
