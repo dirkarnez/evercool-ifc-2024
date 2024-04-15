@@ -26,6 +26,14 @@ evercool-ifc-2024
 - [Building a 3D Product Configurator with Nuxt and Three.js (Part 2) | by IOsorin | Medium](https://iosorin.medium.com/building-a-3d-product-configurator-using-nuxt-and-three-js-part-2-fc960e19aa18)
 - [360 view using CSS3DRenderer - Questions - three.js forum](https://discourse.threejs.org/t/360-view-using-css3drenderer/17045)
 - [Add an Interactive 3D Model to Your Website // Three.js Tutorial for Beginners - YouTube](https://www.youtube.com/watch?v=aOQuuotM-Ww)
+- !!!!!!!!!!!!!!!!!!!!!!![three.js examples](https://threejs.org/examples/#webgpu_postprocessing_anamorphic)
+- [three.js vr - panorama with depth](https://threejs.org/examples/webxr_vr_panorama_depth.html)
+- [three.js vr - roller coaster](https://threejs.org/examples/webxr_vr_rollercoaster.html)
+- [three.js vr - sandbox](https://threejs.org/examples/webxr_vr_sandbox.html)
+- [three.js webgl - arcball controls](https://threejs.org/examples/misc_controls_arcball.html)
+- [three.js webgl - map controls](https://threejs.org/examples/misc_controls_map.html)
+- [three.js - WebGPU - Particles](https://threejs.org/examples/webgpu_particles.html)
+- [three.js webgpu - shadow map](https://threejs.org/examples/webgpu_shadowmap.html)
 ### Images
 ![](The-structure-diagram-of-the-air-handling-unit-AHU-in-the-laboratory.png)
 ### Notes
