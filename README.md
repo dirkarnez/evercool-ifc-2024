@@ -47,6 +47,8 @@
 - [aframevr/awesome-aframe: [DISCONTINUED] Collection of awesome resources for the A-Frame WebVR framework.](https://github.com/aframevr/awesome-aframe)
 - [three.js: Ears | 8th Wall | 8th Wall](https://www.8thwall.com/8thwall/ears-threejs)
 - [hiukim/mind-ar-js: Web Augmented Reality. Image Tracking, Face Tracking. Tensorflow.js](https://github.com/hiukim/mind-ar-js)
+- !!!!!!![markuslerner/THREE.Interactive: Fast and simple interaction manager for three.js for enabling mouse and touch events on 3D objects](https://github.com/markuslerner/THREE.Interactive)
+  - !!!!!!!!!!!!!!![THREE.Interactive glTF Example](https://dev.markuslerner.com/three.interactive/examples/gltf.html)
 ### Images
 ![](The-structure-diagram-of-the-air-handling-unit-AHU-in-the-laboratory.png)
 ### Notes
