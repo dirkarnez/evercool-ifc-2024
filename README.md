@@ -1,6 +1,7 @@
 [evercool-ifc-2024](https://dirkarnez.github.io/evercool-ifc-2024)
 ==================================================================
 - **https://github.com/dirkarnez/web-ifc-three-model-creation**
+- [xeokit/xeokit-convert: Convert various AEC model formats for efficient viewing in the browser with xeokit.](https://github.com/xeokit/xeokit-convert)
 - update Geometry
   - **https://threejs.org/manual/resources/threejs-primitives.js**
     - **https://threejs.org/manual/#en/primitives**
